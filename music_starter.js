@@ -1,15 +1,16 @@
 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(vocal, drum, bass, other) {
-  colorMode(HSB, 25);
-  background(100);
+  //colorMode(HSB, 25);
+  background(0,5,0);
   rectMode(CENTER);
   strokeWeight(9);
 
+  
   let bassMap = map(bass, 0, 100, 5, 70);
-  let drumMap = map(drum, 0, 100, 5, 70);
-  let widthOfEllipse = 20;
-  let ellipseStart = 500;
+  let drumMap = map(drum, 0, 100, 5, 100);
+  let widthOfEllipse = 100;
+  let ellipseStart = 750;
   let ellipseEnd = ellipseStart + widthOfEllipse;
   stroke(drumMap,100,200);
 
@@ -17,7 +18,7 @@ function draw_one_frame(vocal, drum, bass, other) {
     console.log(i);
     var ellispeSpacing = i*5;
     fill(100)
-    ellipse(ellipseStart-300,ellispeSpacing, ellipseEnd,ellispeSpacing)
+    ellipse(ellipseStart,ellispeSpacing+200, ellipseEnd-500,ellispeSpacing)
   
   }
 
