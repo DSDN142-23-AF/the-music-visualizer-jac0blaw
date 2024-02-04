@@ -1,63 +1,89 @@
+let firstRun = true
 
+let starFace = [];
 function draw_one_frame(words, vocal, drum, bass, other,counter) {
+
+
+  if (firstRun) {
+    rectMode(CENTER);
+    starFace.push(loadImage('star_0.png'));
+    starFace.push(loadImage('star_1.png'));
+    starFace.push(loadImage('star_2.png'));
+
+    firstRun = false
+  }
+ background(255);
+
+ var VocalFrame = int(map(vocal,0,100,0,2));
+ console.log(VocalFrame);
+ push();
+ scale();
+ image(star[VocalFrame], width/2, height/2)
+ pop();
+
+}
+  
+  
   //colorMode(HSB, 25);
-  background(0,5,0);
-  rectMode(CENTER);
-  strokeWeight(9);
+  // background(0,5,0);
+  // rectMode(CENTER);
+  // strokeWeight(9);
  
-  strokeWeight(9);
-  textFont('Georgia');
-  textAlign(CENTER);
-  textStyle(BOLD);
-  textSize(80);
-  noStroke();
-  fill(255);
-  text(words, width/2, height/5);
+  // strokeWeight(9);
+  // textFont('Georgia');
+  // textAlign(CENTER);
+  // textStyle(BOLD);
+  // textSize(80);
+  // noStroke();
+  // fill(255);
+  // text(words, width/2, height/5);
 
 
-  let seconds = counter
-  console.log(counter)
-    textSize(60);
-    text(seconds, 20, height-90);
-  
-  
-  }
-
-  console.log(words)
-  let bassMap = map(bass, 0, 100, 5, 70);
-  let drumMap = map(drum, 0, 100, 5, 100);
-
-
-  let widthOfEllipse = 100;
-  let ellipseStartX = 20;
-  let ellipseSizeCHange = ellipseStartX + widthOfEllipse;
-
-  stroke(drumMap,100,200);
-
-  for(let i =1; i <= drumMap; i++){
-    // console.log(i);
-    var ellispeSpacing = i*5;
-    fill(100)
-    //ellipse(ellipseStartX+ellispeSpacing,200, ellipseEndX-500,ellispeSpacing) // older version 
-    ellipse(ellipseStartX+ellispeSpacing,400, ellipseSizeCHange,ellispeSpacing)
-  }
-
-  let quietColour = color("#fae")
-  let loudColor = color("#abf")
-  let colorLerpMap = map(bass, 0 , 100, 0,1)
-  let currentColor = lerpColor(quietColour,loudColor,colorLerpMap)
-
+  // let seconds = counter
   // console.log(counter)
-  // if(counter > 5 && counter < 10){
-  // ellipse(600,600,100)
+  //   textSize(60);
+  //   text(seconds, 500, height-90);
+  
 
+  // line
+
+  // console.log(words)
+  // let bassMap = map(bass, 0, 100, 5, 70);
+  // let drumMap = map(drum, 0, 100, 5, 100 );
+
+
+  // let widthOfEllipse = 100;
+  // let ellipseStartX = 200;
+  // let ellipseSizeCHange = ellipseStartX + widthOfEllipse;
+
+  // stroke(bassMap,100,200);
+
+  // for(let i =1; i <= bassMap; i++){
+  //   // console.log(i);
+  //   var ellispeSpacing = i*5;
+  //   fill(100)
+  //   //ellipse(ellipseStartX+ellispeSpacing,200, ellipseEndX-500,ellispeSpacing) // older version 
+  //   ellipse(ellipseStartX+ellispeSpacing,300, ellipseSizeCHange,ellispeSpacing)
   // }
 
-  
+  // let quietColour = color("#fae")
+  // let loudColor = color("#abf")
+  // let colorLerpMap = map(bass, 0 , 100, 0,1)
+  // let currentColor = lerpColor(quietColour,loudColor,colorLerpMap)
+
+  // // console.log(counter)
+  // // if(counter > 5 && counter < 10){
+  // // ellipse(600,600,100)
+
+  // // }
+
+  // if(words == "heroin."){
+  //   ellipse(600,600,100)
+  //     }
 
 
-  //stroke(drumMap,100,200);
-  stroke(currentColor)
+  // //stroke(drumMap,100,200);
+  // stroke(currentColor)
 
 
   // stroke(bassMap,10,80);
@@ -69,6 +95,4 @@ function draw_one_frame(words, vocal, drum, bass, other,counter) {
   
   // }
 
-
-
-
+//}
