@@ -20,6 +20,7 @@ function draw_one_frame(vocal, drum, bass, other) {
  push();
  scale(0.5);
  image(starFace[VocalFrame], width/2, height/2)
+
  pop();
 
 }
