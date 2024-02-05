@@ -10,19 +10,29 @@ function draw_one_frame(words, vocal, drum, bass, other,counter) {
     starFace.push(loadImage('star_0.png'));
     starFace.push(loadImage('star_1.png'));
     starFace.push(loadImage('star_2.png'));
-
+    
     firstRun = false
   }
- background(255);
-image(bodyOfStar, 20, 10);
+  
+ background(25);
+
+ var bodyHeight = map(vocal, -500, 10, 100, 25)
+ 
+ image(bodyOfStar, bodyHeight, 10);
  var VocalFrame = int(map(vocal,0,100,0,3));
  console.log(VocalFrame);
  push();
- scale(0.5);
- image(starFace[VocalFrame], width/2, height/2)
+ //scale();
+ translate(-580, -390);
+ image(starFace[VocalFrame], bodyHeight+575, height/2)
+ 
  pop();
 
+
+
 }
+
+// ellipse(width/2, danceMove, bodyHeight);
   // colorMode(HSB, 25);
   // background(0,5,0);
   // rectMode(CENTER);
