@@ -18,9 +18,10 @@ function draw_one_frame(vocal, drum, bass, other) {
  var VocalFrame = int(map(vocal,0,100,0,2));
  console.log(VocalFrame);
  push();
- scale(0.2);
- image(star[VocalFrame], width/2, height/2)
+ scale(0.5);
+ image(starFace[VocalFrame], width/2, height/2)
  pop();
 
 }
+
 
