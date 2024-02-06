@@ -3,16 +3,20 @@ let firstRun = true
 let buildingColour;
 let buildingOutline;
 let bodyOfStar;
-
+let yellowLines;
+let moonRise;
 
 let starFace = [];
 function draw_one_frame(words, vocal, drum, bass, other,counter) {
   
   if (firstRun) {
     rectMode(CENTER);
+    moonRise = loadImage('sky.png');
+    yellowLines = loadImage('roadLines.png');
     buildingOutline = loadImage('outline.png');
     buildingColour = loadImage('colourIN.png');
     bodyOfStar = loadImage('starbody.png');
+
     starFace.push(loadImage('star_0.png'));
     starFace.push(loadImage('star_1.png'));
     starFace.push(loadImage('star_2.png'));
@@ -22,20 +26,24 @@ function draw_one_frame(words, vocal, drum, bass, other,counter) {
     firstRun = false
   }
   
- background(255);
+ background(65);
 
  var movementBuild = map(drum, 0, 100, -10, 10)
  var bodyHeight = map(vocal, -50, 140, 50, -20)
  
+ image(moonRise, 0, 0);
+ image(yellowLines, 0, 0);
  image(buildingColour, movementBuild, 0);
  image(buildingOutline, 0, 0);
- image(bodyOfStar, 220, 1200);
+ 
+ 
+ image(bodyOfStar, 195, 1600);
  var VocalFrame = int(map(vocal,0,100,0,5));
  console.log(VocalFrame);
  push();
  //scale();
  translate(-580, -390);
- image(starFace[VocalFrame], width/2, height/1.51)
+ image(starFace[VocalFrame], width/2-25, height/1.1-190)
  
  pop();
 
