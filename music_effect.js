@@ -20,7 +20,7 @@ function draw_one_frame(words, vocal, drum, bass, other,counter) {
     greyroad = loadImage('road.png');
     moonRise = loadImage('sky1.png');
     yellowLines = loadImage('roadLines.png');
-    buildingOutline = loadImage('outline.png');
+    buildingOutline = loadImage('outline1.png');
     buildingColour = loadImage('colourIN.png');
     bodyOfStar = loadImage('starbody.png');
 
@@ -32,15 +32,11 @@ function draw_one_frame(words, vocal, drum, bass, other,counter) {
     
     firstRun = false
   }
-  
-  
- background(65);
- 
 
- 
+ background(65);
 
  if (yPos >= 0) {
-  yPos += 0.1;
+  yPos += 0.11;
 }
 translate(image(moonRise, 0, yPos-1700));
 
