@@ -1,5 +1,9 @@
 let firstRun = true
 
+let yPos = 0;
+
+let whitebackground;
+let greyroad;
 let buildingColour;
 let buildingOutline;
 let bodyOfStar;
@@ -11,7 +15,10 @@ function draw_one_frame(words, vocal, drum, bass, other,counter) {
   
   if (firstRun) {
     rectMode(CENTER);
-    moonRise = loadImage('sky.png');
+
+    whitebackground = loadImage('whiteback.png');
+    greyroad = loadImage('road.png');
+    moonRise = loadImage('sky1.png');
     yellowLines = loadImage('roadLines.png');
     buildingOutline = loadImage('outline.png');
     buildingColour = loadImage('colourIN.png');
@@ -26,12 +33,24 @@ function draw_one_frame(words, vocal, drum, bass, other,counter) {
     firstRun = false
   }
   
+  
  background(65);
+ 
+
+ 
+
+ if (yPos >= 0) {
+  yPos += 0.1;
+}
+translate(image(moonRise, 0, yPos-1700));
+
+image(whitebackground, 0, 0);
 
  var movementBuild = map(drum, 0, 100, -10, 10)
  var bodyHeight = map(vocal, -50, 140, 50, -20)
  
- image(moonRise, 0, 0);
+
+ image(greyroad, 0, 0);
  image(yellowLines, 0, 0);
  image(buildingColour, movementBuild, 0);
  image(buildingOutline, 0, 0);
