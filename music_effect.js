@@ -2,6 +2,7 @@ let firstRun = true
 
 let yPos = 0;
 
+let nightsky;
 let whitebackground;
 let greyroad;
 let buildingColour;
@@ -16,6 +17,7 @@ function draw_one_frame(words, vocal, drum, bass, other,counter) {
   if (firstRun) {
     rectMode(CENTER);
 
+    nightsky = loadImage('stars1.png');
     whitebackground = loadImage('whiteback.png');
     greyroad = loadImage('road.png');
     moonRise = loadImage('sky1.png');
@@ -39,12 +41,19 @@ function draw_one_frame(words, vocal, drum, bass, other,counter) {
   yPos += 0.11;
 }
 translate(image(moonRise, 0, yPos-1700));
+scale(translate(image(nightsky, 0, yPos-2000)),0.1);
 
 image(whitebackground, 0, 0);
 
  var movementBuild = map(drum, 0, 100, -10, 10)
  var bodyHeight = map(vocal, -50, 140, 50, -20)
  
+  let quietColour = color("#fae")
+  let loudColor = color("#abf")
+  let colorLerpMap = map(bass, 0 , 100, 0,1)
+  let currentColor = lerpColor(quietColour,loudColor,colorLerpMap)
+  
+ let widthOfEllipse = 500;
 
  image(greyroad, 0, 0);
  image(yellowLines, 0, 0);
@@ -52,13 +61,24 @@ image(whitebackground, 0, 0);
  image(buildingOutline, 0, 0);
  
  
- image(bodyOfStar, 195, 1600);
+ fill(currentColor);
+ ellipse(800,2240,widthOfEllipse,colorLerpMap+100);
+
+  // for(let i =1; i <= bassMap; i++){
+  //   // console.log(i);
+  //   var ellispeSpacing = i*5;
+  //   fill(100)
+  //   //ellipse(ellipseStartX+ellispeSpacing,200, ellipseEndX-500,ellispeSpacing) // older version 
+  //   ellipse(ellipseStartX+ellispeSpacing,300, ellipseSizeCHange,ellispeSpacing)
+  // }
+
+ image(bodyOfStar, 195, 1500);
  var VocalFrame = int(map(vocal,0,100,0,5));
  console.log(VocalFrame);
  push();
  //scale();
- translate(-580, -390);
- image(starFace[VocalFrame], width/2-25, height/1.1-190)
+ translate(-580, -500);
+ image(starFace[VocalFrame], width/2-25, height/1.1-180)
  
  pop();
 
@@ -138,4 +158,3 @@ image(whitebackground, 0, 0);
   
   // }
 
-//}
