@@ -46,10 +46,9 @@ scale(translate(image(nightsky, 0, yPos-2000)),0.1);
 image(whitebackground, 0, 0);
 
  var movementBuild = map(drum, 0, 100, -10, 10)
- var bodyHeight = map(vocal, -50, 140, 50, -20)
- 
-  let quietColour = color("#fae")
-  let loudColor = color("#abf")
+
+  let quietColour = color(255,255,255, 5);
+  let loudColor = color(255,228,63, 90);
   let colorLerpMap = map(bass, 0 , 100, 0,1)
   let currentColor = lerpColor(quietColour,loudColor,colorLerpMap)
   
@@ -60,7 +59,7 @@ image(whitebackground, 0, 0);
  image(buildingColour, movementBuild, 0);
  image(buildingOutline, 0, 0);
  
- 
+ noStroke();
  fill(currentColor);
  ellipse(800,2240,widthOfEllipse,colorLerpMap+100);
 
@@ -72,18 +71,28 @@ image(whitebackground, 0, 0);
   //   ellipse(ellipseStartX+ellispeSpacing,300, ellipseSizeCHange,ellispeSpacing)
   // }
 
- image(bodyOfStar, 195, 1500);
+ image(bodyOfStar, 200, 1500);
  var VocalFrame = int(map(vocal,0,100,0,5));
  console.log(VocalFrame);
  push();
  //scale();
  translate(-580, -500);
- image(starFace[VocalFrame], width/2-25, height/1.1-180)
+ image(starFace[VocalFrame], width/2-20, height/1.1-180)
  
  pop();
 
+ beginShape(TRIANGLES);
+ fill(currentColor);
+ vertex(800, -300);
+ vertex(550, 2240);
+ vertex(1050, 2240);
+ 
+ endShape();
 
-
+ fill(currentColor);
+ rotate(180);
+ 
+ arc(-800, -2240, 500, 100, 180, HALF_PI-1.6);
 }
 
 // ellipse(width/2, danceMove, bodyHeight);
