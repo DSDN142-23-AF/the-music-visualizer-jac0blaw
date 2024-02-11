@@ -45,7 +45,7 @@ scale(translate(image(nightsky, 0, yPos-2000)),0.1);
 
 image(whitebackground, 0, 0);
 
- var movementBuild = map(drum, 0, 100, -10, 10)
+
 
   let quietColour = color(255,255,255, 5);
   let loudColor = color(255,228,63, 90);
@@ -56,6 +56,9 @@ image(whitebackground, 0, 0);
 
  image(greyroad, 0, 0);
  image(yellowLines, 0, 0);
+
+ var movementBuild = map(drum, 0, 100, -10, 10)
+
  image(buildingColour, movementBuild, 0);
  image(buildingOutline, 0, 0);
  
