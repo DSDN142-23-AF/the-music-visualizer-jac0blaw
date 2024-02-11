@@ -37,136 +37,80 @@ function draw_one_frame(words, vocal, drum, bass, other,counter) {
 
  background(65);
 
- if (yPos >= 0) {
+ if (yPos >= 0) { //if command to make y pos change
   yPos += 0.11;
 }
-translate(image(moonRise, 0, yPos-1700));
+translate(image(moonRise, 0, yPos-1700)); //star and sky movement command
 scale(translate(image(nightsky, 0, yPos-2000)),0.1);
 
-image(whitebackground, 0, 0);
+image(whitebackground, 0, 0); //white background to make colour look better
 
 
 
-  let quietColour = color(255,255,255, 5);
+  let quietColour = color(255,255,255, 5); //colour lerp for spotlight
   let loudColor = color(255,228,63, 90);
   let colorLerpMap = map(bass, 0 , 100, 0,1)
   let currentColor = lerpColor(quietColour,loudColor,colorLerpMap)
   
  let widthOfEllipse = 500;
 
- image(greyroad, 0, 0);
+ image(greyroad, 0, 0); //images for road
  image(yellowLines, 0, 0);
+ 
+ var movementBuild = map(drum, 0, 100, -10, 10) //drum map for movement of building 
 
- var movementBuild = map(drum, 0, 100, -10, 10)
-
- image(buildingColour, movementBuild, 0);
+ image(buildingColour, movementBuild, 0); //building outline and colour
  image(buildingOutline, 0, 0);
  
+//  if(words == "I'm"){
+//   fill(0);
+//   rect(800,1200,1600, 2400,10);
+//     }
+
+//  if(words == "a"){
+//   fill(0);
+//   rect(800,1200,1600, 2400,10);
+//     }
+
+ if(words == "motherfuckin'"){ //if command for black rectangle
+  fill(0);
+  rect(800,1200,1600, 2400,10);
+    }
+
+ if(words == "starboy"){ //if command for black rectangle
+  fill(0);
+  rect(800,1200,1600, 2400,10);
+    }
+
+    if(words == "starbuck"){ //if command for black rectangle
+      fill(0);
+      rect(800,1200,1600, 2400,10);
+        }
+
  noStroke();
  fill(currentColor);
- ellipse(800,2240,widthOfEllipse,colorLerpMap+100);
-
-  // for(let i =1; i <= bassMap; i++){
-  //   // console.log(i);
-  //   var ellispeSpacing = i*5;
-  //   fill(100)
-  //   //ellipse(ellipseStartX+ellispeSpacing,200, ellipseEndX-500,ellispeSpacing) // older version 
-  //   ellipse(ellipseStartX+ellispeSpacing,300, ellipseSizeCHange,ellispeSpacing)
-  // }
-
- image(bodyOfStar, 200, 1500);
- var VocalFrame = int(map(vocal,0,100,0,5));
+ ellipse(800,2240,widthOfEllipse,colorLerpMap+100); //ellipse under star boy
+  
+ image(bodyOfStar, 200, 1500); //body of star boy
+ var VocalFrame = int(map(vocal,0,100,0,5)); //vocal map for image sequence of face
  console.log(VocalFrame);
  push();
  //scale();
  translate(-580, -500);
- image(starFace[VocalFrame], width/2-20, height/1.1-180)
+ image(starFace[VocalFrame], width/2-20, height/1.1-180) //star face image sequence mapped to vocal frame
  
  pop();
 
- beginShape(TRIANGLES);
+ beginShape(TRIANGLES); //drawing triangle for spotlight
  fill(currentColor);
  vertex(800, -300);
  vertex(550, 2240);
  vertex(1050, 2240);
  
  endShape();
-
+ 
  fill(currentColor);
  rotate(180);
  
- arc(-800, -2240, 500, 100, 180, HALF_PI-1.6);
+ arc(-800, -2240, 500, 100, 180, HALF_PI-1.6); //bottom semi-circle of spotlight
 }
-
-// ellipse(width/2, danceMove, bodyHeight);
-  // colorMode(HSB, 25);
-  // background(0,5,0);
-  // rectMode(CENTER);
-  // strokeWeight(9);
- 
-  // strokeWeight(9);
-  // textFont('Georgia');
-  // textAlign(CENTER);
-  // textStyle(BOLD);
-  // textSize(80);
-  // noStroke();
-  // fill(255);
-  // text(words, width/2, height/5);
-
-
-  // let seconds = counter
-  // console.log(counter)
-  //   textSize(60);
-  //   text(seconds, 500, height-90);
-  
-
-  // line
-
-  // console.log(words)
-  // let bassMap = map(bass, 0, 100, 5, 70);
-  // let drumMap = map(drum, 0, 100, 5, 100 );
-
-
-  // let widthOfEllipse = 100;
-  // let ellipseStartX = 200;
-  // let ellipseSizeCHange = ellipseStartX + widthOfEllipse;
-
-  // stroke(bassMap,100,200);
-
-  // for(let i =1; i <= bassMap; i++){
-  //   // console.log(i);
-  //   var ellispeSpacing = i*5;
-  //   fill(100)
-  //   //ellipse(ellipseStartX+ellispeSpacing,200, ellipseEndX-500,ellispeSpacing) // older version 
-  //   ellipse(ellipseStartX+ellispeSpacing,300, ellipseSizeCHange,ellispeSpacing)
-  // }
-
-  // let quietColour = color("#fae")
-  // let loudColor = color("#abf")
-  // let colorLerpMap = map(bass, 0 , 100, 0,1)
-  // let currentColor = lerpColor(quietColour,loudColor,colorLerpMap)
-
-  // // console.log(counter)
-  // // if(counter > 5 && counter < 10){
-  // // ellipse(600,600,100)
-
-  // // }
-
-  // if(words == "heroin."){
-  //   ellipse(600,600,100)
-  //     }
-
-
-  // //stroke(drumMap,100,200);
-  // stroke(currentColor)
-
-
-  // stroke(bassMap,10,80);
-  // for(let i =1; i <= bassMap; i++){
-  //   console.log(i);
-  //   var ellispeSpacing = i*5;
-  //   fill(100)
-  //   ellipse(ellipseStart+250,ellispeSpacing, ellipseEnd,ellispeSpacing)
-  
-  // }
-
