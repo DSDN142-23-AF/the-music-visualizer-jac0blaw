@@ -4,18 +4,17 @@ let last_words_opacity = 0;
 function draw_one_frame(words, vocal, drum, bass, other,counter) {
   background(255,236,180); // cream
   fill(244,161,39); // orange
-
   let stripeWidth = map(other, 40, 100, 40, 80, true);
 
   let numStripes = height / stripeWidth;
   for(let i=0; i<numStripes; i=i+2) {
-    let cury = map(i, 0, numStripes-1, 0, height);
-    rect(0, cury, width, stripeWidth);
+    let curY = map(i, 0, numStripes-1, 0, height);
+    rect(0, curY, width, stripeWidth);
   }
 
   let triangleHeight = map(bass, 40, 100, 200, 550, true);
   fill(117,200,174); // teal
-  for(let i=0; i<3; i++) {
+  for(let i=0; i<3; i++) { // i took this from landcape js 
     let cur_x = map(i, 0, 4, 0, width);
     let next_x = map(i+1, 0, 3, 0, width);
     let mid_x = (cur_x + next_x) / 2.0;
@@ -38,11 +37,11 @@ function draw_one_frame(words, vocal, drum, bass, other,counter) {
   ellipse(width/2, ovalPlace, ovalSize);
 
   if(words == "") {
-    last_words_opacity = last_words_opacity * 0.95;
+    last_words_opacity = last_words_opacity * 0.95; 
     words = last_words;
   }
   else {
-    last_words_opacity = (1 + last_words_opacity) * 1.1;
+    last_words_opacity = (1 + last_words_opacity) * 1.1; 
     if(last_words_opacity > 255) {
       last_words_opacity = 255;
     }
